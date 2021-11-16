@@ -48,11 +48,10 @@ function LoadCommands(guild: Guild) {
                 const FuncPos = Functions[command.name]
                 const Command = Commands[FuncPos]
                 if (!Command) return
+                if (Command.permissions.length === 0) return
 
                 //? Set Permissions
-                command.permissions.set({
-                    "permissions": Command.permissions
-                })
+                command.permissions.set({ permissions: Command.permissions })
                     .then(() => {
                         console.debug(`Set Guild Command Permission: ${guild.id}-${command.id}`)
                     })
