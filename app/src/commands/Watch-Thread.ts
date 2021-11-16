@@ -22,7 +22,7 @@ export const AppCommand: BotCommand = {
         {
             "type": "USER",
             "permission": true,
-            "id": "264190729797107714"
+            "id": String(process.env.YUNA_OWNER)
         }
     ],
 
