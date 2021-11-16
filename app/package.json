@@ -1,0 +1,20 @@
+{
+  "name": "flippy",
+  "private": true,
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bakonpancakz",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^13.3.1",
+    "ioredis": "^4.28.0"
+  },
+  "devDependencies": {
+    "@types/ioredis": "^4.28.1",
+    "dotenv": "^10.0.0",
+    "typescript": "^4.4.4"
+  }
+}
