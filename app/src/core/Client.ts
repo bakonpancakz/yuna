@@ -3,7 +3,16 @@ import { Client } from "discord.js"
 //* Create Client
 const Bot = new Client({
     "intents": [
-        "GUILDS"
+        "GUILDS",
+        "GUILD_MESSAGES",
+        "GUILD_MESSAGE_REACTIONS",
+    ],
+    "partials": [
+        "REACTION",
+        "USER",
+        "MESSAGE",
+        "CHANNEL",
+        "GUILD_MEMBER"
     ]
 })
 

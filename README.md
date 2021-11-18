@@ -21,4 +21,6 @@
 YUNA_TOKEN="<Discord Bot Token>" # https://discord.com/developers/applications
 YUNA_REDIS="<Redis URI>"         # Required for commands, will not run without
 YUNA_OWNER="<Discord User ID"    # Your User ID, required for running some commands
+YUNA_UPVOTE="🔺"                # Emoji for Upvote
+YUNA_DOWNVOTE="🔻"              # Emoji for Downvote
 ```
