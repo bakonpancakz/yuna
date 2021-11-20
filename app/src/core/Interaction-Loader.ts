@@ -19,6 +19,7 @@ if (existsSync(Directory)) {
         const module: BotCommand = require(join(Directory, fn))?.AppCommand
 
         //? Validate Module
+        if (module?.disabled) return console.debug(`Skipping Module: ${fn}, it is disabled.`)
         if (!module?.invokeFunction) throw "Missing invokeFunction"
         if (!module?.structure) throw "Missing structure"
 
