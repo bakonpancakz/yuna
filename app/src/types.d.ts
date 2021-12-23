@@ -7,7 +7,6 @@ declare interface BotCommand {
     disabled?: boolean,
 }
 
-
 declare interface SauceNaoResponse {
     header: {
         user_id: string

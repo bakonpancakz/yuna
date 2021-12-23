@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "main": "build/index.js",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "bakonpancakz",
@@ -12,6 +13,9 @@
     "axios": "^0.24.0",
     "discord.js": "^13.3.1",
     "ioredis": "^4.28.0"
+  },
+  "engines": {
+    "node": ">=16.6.0"
   },
   "devDependencies": {
     "@types/ioredis": "^4.28.1",
