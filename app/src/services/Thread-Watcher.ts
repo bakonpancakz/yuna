@@ -6,7 +6,7 @@ Bot.on("threadUpdate", async (oldThread, newThread) => {
     if (!newThread) return
 
     //? Check List for Matching ChannelId
-    const ChannelIds = await Redis.smembers("yuna:threads")
+    const ChannelIds = await Redis.sMembers("yuna:threads")
     ChannelIds.forEach((channelId: string) => {
         if (channelId === newThread.id) {
 
