@@ -13,22 +13,33 @@ export const AppCommand: BotCommand = {
     structure: {
         "name": "riseandgrind",
         "type": "CHAT_INPUT",
-        "description": "⏩ See the Rise And Grind for Tommorow"
+        "description": "⏩ See the Rise And Grind for Tommorow",
+        "options": [
+            {
+                "name": "offset",
+                "description": "Number of days to offset",
+                "type": "NUMBER",
+                "required": false
+            }
+        ]
     },
 
     invokeFunction: async (int: CommandInteraction) => {
 
         //* Pull Current Data
-        const Count = await Redis.get("rag:count")
-        const Quote = await Redis.lRange("rag:quotes", 0, 0)[0]
-        const Image = await Redis.lRange("rag:images", 0, 0)[0]
+        const Offset = int.options.getNumber("offset") || 0
+        const Count = Number(await Redis.get("rag:count")) + Offset
+        const Quote = await Redis.lRange("rag:quotes", Offset, Offset)
+        const Image = await Redis.lRange("rag:images", Offset, Offset)
 
         //* Create Embed
         const Embed = new MessageEmbed({
             title: `Rise And Grind - Day ${Count}`,
-            description: Quote,
+            description: Quote[0],
             color: 16711760,
-            image: { url: Image },
+            image: {
+                url: Image[0]
+            },
         })
 
         //* Return Embed
