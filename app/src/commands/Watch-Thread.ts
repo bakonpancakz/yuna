@@ -37,7 +37,7 @@ export const AppCommand: BotCommand = {
 
         //? Add thread to set
         console.debug(`Watching Thread: ${channel.id}`)
-        Redis.sadd("yuna:threads", [channel.id])
+        Redis.sAdd("yuna:threads", [channel.id])
 
         //? Return Reply
         int.reply({

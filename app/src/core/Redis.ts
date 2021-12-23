@@ -1,9 +1,10 @@
-import * as ioredis from 'ioredis'
+import { createClient } from "redis"
 
-const Redis = new ioredis(
-    process.env.YUNA_REDIS
+const Redis = createClient({
+    "url": process.env.YUNA_REDIS
         ? String(process.env.YUNA_REDIS)
         : "redis://localhost:6379"
-)
+})
+Redis.connect()
 
 export default Redis
