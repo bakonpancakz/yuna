@@ -1,5 +1,17 @@
-import { CommandInteraction } from "discord.js";
+import { CommandInteraction, MessageAttachment } from "discord.js";
 import { BotCommand } from "../types";
+import { readFileSync } from "fs";
+import { join } from "path";
+
+//* Load Image into Memory
+const Image = new MessageAttachment(
+    readFileSync(
+        // Get Image from images directory as typescript
+        // doesn't copy images directory to build
+        join(__dirname, "../../images/ripbozo.gif"),
+    ),
+    "ripbozo.gif"
+)
 
 export const AppCommand: BotCommand = {
     permissions: [],
@@ -11,7 +23,8 @@ export const AppCommand: BotCommand = {
 
     invokeFunction: async (int: CommandInteraction) => {
 
-        int.reply({ "content": "https://i.imgur.com/SD26BFu.gif" })
-
+        //* Return RIPBOZO GIF
+        await int.deferReply()  // Deferred Incase Upload is Slow
+        int.editReply({ "files": [Image] })
     }
 }
