@@ -19,9 +19,10 @@
 Use the following below as a template for your `.env` file.
 
 ```perl
-YUNA_TOKEN="<Discord Bot Token>" # https://discord.com/developers/applications
-YUNA_REDIS="<Redis URI>"         # Required for commands, will not run without
-YUNA_OWNER="<Discord User ID"    # Your User ID, required for running some commands
-YUNA_UPVOTE="🔺"                # Emoji for Upvote
-YUNA_DOWNVOTE="🔻"              # Emoji for Downvote
+YUNA_TOKEN="<Discord Bot Token>"    # https://discord.com/developers/applications
+YUNA_OWNER="<Discord User ID>"      # Your User ID, required for running some commands
+YUNA_SAUCENAO="<SauceNAO API KEY>"  # Required for SauceNAO command (Unreliable)
+YUNA_REDIS="<Redis URI>"            # Required for commands, will not run without
+YUNA_UPVOTE="🔺"                    # Emoji for Upvote
+YUNA_DOWNVOTE="🔻"                  # Emoji for Downvote
 ```
