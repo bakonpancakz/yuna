@@ -49,5 +49,5 @@ let Tracks = [
     { name: "Hold My Liquor", time: 326000 },
     { name: "Blood On The Leaves", time: 359000 },
     { name: "No Church In The Wild", time: 272000 },
-    { name: "Ni**as In Paris", time: 219000 }
+    { name: "Fellas In Paris", time: 219000 }
 ]
