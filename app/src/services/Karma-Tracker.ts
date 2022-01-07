@@ -10,8 +10,9 @@ Bot.on("messageCreate", async (message) => {
 
     //? Check for Media
     if (
-        message.attachments.size > 0 || // Check for Attachments
-        message.embeds.length > 0       // Check for Embeds (Created by Twitter, Tenor, etc.)
+        message.attachments.size > 0 ||   // Check for Attachments
+        message.embeds.length > 0 ||      // Check for Embeds (Created by Twitter, Tenor, etc.)
+        message.content.toLowerCase().includes("ratio") // Check for Ratio(s)
     ) {
 
         //? Add Reactions
