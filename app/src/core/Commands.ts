@@ -1,6 +1,7 @@
 import { Structures, Functions, Commands } from "./Manifest";
-import { Guild } from "discord.js";
+import { Guild, GuildApplicationCommandPermissionData } from "discord.js";
 import Bot from "./Client";
+
 
 Bot.on("interactionCreate", async (anyInt) => {
     if (!anyInt.isApplicationCommand()) return;
@@ -34,13 +35,13 @@ Bot.once("ready", () => { Bot.guilds.cache.map(WriteCommands) });
 Bot.on("guildCreate", WriteCommands);
 
 function WriteCommands(guild: Guild) {
-
-    //* Bulk Overwrite Guild Commands
-    Promise.all([
-        guild.commands.set(Structures),                             // Bulk overwrite Command(s)
-        guild.commands.permissions.set({ fullPermissions: [] }),    // Bulk overwrite Permission(s)
-    ])
+    guild.commands.set(Structures)
+        .then(async (commands) => {
+            //* Overwrite Command Permissions
+            const Permissions: GuildApplicationCommandPermissionData[] =
+                commands.map(c => { return { "id": c.id, "permissions": [] } });
+            await guild.commands.permissions.set({ fullPermissions: Permissions });
+        })
         .then(() => console.debug(`Updated Guild: ${guild.id}`))
         .catch(e => console.debug(`Updated Guild: ${guild.id}`, e));
-
 };
