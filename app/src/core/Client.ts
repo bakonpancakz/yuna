@@ -6,6 +6,7 @@ const Bot = new Client({
         "GUILDS",
         "GUILD_MESSAGES",
         "GUILD_MESSAGE_REACTIONS",
+        "GUILD_PRESENCES",
     ],
     "partials": [
         "REACTION",
@@ -25,6 +26,5 @@ Bot.login(process.env.YUNA_TOKEN)
         console.error("Login Failed!", err)
         process.exit(1)
     })
-
 
 export default Bot

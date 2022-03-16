@@ -3,11 +3,14 @@ import { ApplicationCommandDataResolvable } from "discord.js";
 import ClearThread from "../commands/Clear-Thread";
 import WatchThread from "../commands/Watch-Thread";
 import AnotherDay from "../commands/AnotherDay";
+import Activity from "../commands/Activity";
 import Karma from "../commands/Karma";
 // Import Services
 import "../services/Thread-Watcher";
 import "../services/Karma-Tracker";
+import "../services/Time-Tracker";
 import "../services/Kanye-Songs";
+
 
 // Exports
 export const Structures: ApplicationCommandDataResolvable[] = [];
@@ -16,8 +19,10 @@ export const Commands: BotCommand[] = [
     ClearThread,
     WatchThread,
     AnotherDay,
+    Activity,
     Karma,
 ];
+
 
 // Retrieve Structure(s) & Function(s)
 Commands.forEach((command: BotCommand, index: number) => {
