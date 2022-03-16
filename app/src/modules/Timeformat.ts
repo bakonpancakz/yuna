@@ -17,7 +17,7 @@ function div(str: string, suffix: string, start: number, divisor: number): [stri
     }
 
     //* Modify String
-    if (iterations > 0) str = `${str} ${iterations}${suffix}`
+    if (iterations > 0) str = `${str} ${iterations}${suffix}`;
 
     return [str.trim(), leftover];
 }
@@ -29,5 +29,6 @@ export function toDuration(d: number): string {
     var [s, d] = div(s, "h", d, Time.hour);
     var [s, d] = div(s, "m", d, Time.minute);
     var [s, d] = div(s, "s", d, Time.second);
+    if (s.length === 0) s = "0s";
     return s;
 }
