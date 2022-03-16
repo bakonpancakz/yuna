@@ -17,7 +17,7 @@ const Bot = new Client({
 })
 
 //* Login Client
-Bot.login(String(process.env.YUNA_TOKEN))
+Bot.login(process.env.YUNA_TOKEN)
     .then(() => {
         console.debug(`Ready! Logged in as ${Bot.user.tag}`)
     })
