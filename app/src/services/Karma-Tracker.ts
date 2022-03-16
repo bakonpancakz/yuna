@@ -1,18 +1,18 @@
 import Bot from "../core/Client";
 import Redis from "../core/Redis";
 
-const UPVOTE = process.env.YUNA_UPVOTE ? String(process.env.YUNA_UPVOTE) : "🔺"
-const DOWNVOTE = process.env.YUNA_DOWNVOTE ? String(process.env.YUNA_DOWNVOTE) : "🔻"
+const UPVOTE = process.env.YUNA_UPVOTE/**/ || "🔺";
+const DOWNVOTE = process.env.YUNA_DOWNVOTE || "🔻";
 
 Bot.on("messageCreate", async (message) => {
-    if (message.author.bot) return                                       // Ignore Bots
-    if (!message.guild.me.permissions.has("ADD_REACTIONS", true)) return // Check Permissions
+    if (message.author.bot) return                                          // Ignore Bots
+    if (!message.guild.me.permissions.has("ADD_REACTIONS", true)) return    // Check Permissions
 
     //? Check for Media
     if (
-        message.attachments.size > 0 ||   // Check for Attachments
-        message.embeds.length > 0 ||      // Check for Embeds (Created by Twitter, Tenor, etc.)
-        message.content.toLowerCase().includes("ratio") // Check for Ratio(s)
+        message.attachments.size > 0 ||                                     // Check for Attachments
+        message.embeds.length > 0 ||                                        // Check for Embeds (Created by Twitter, Tenor, etc.)
+        message.content.toLowerCase().includes("ratio")                     // Check for Ratio(s)
     ) {
 
         //? Add Reactions
