@@ -1,6 +1,5 @@
 import { createCanvas, loadImage } from "canvas";
 import { CommandInteraction } from "discord.js";
-import { BotCommand } from "../types";
 import { readFileSync } from "fs";
 import { join } from "path";
 
@@ -10,25 +9,26 @@ const TemplateImage = loadImage(
     readFileSync(
         // Get Image from images directory as typescript
         // doesn't copy images directory to build
-        join(__dirname, "../../images/anotherday.jpg")
+        join(__dirname, "../../resources/anotherday.jpg")
     )
 )
 
-export const AppCommand: BotCommand = {
-    permissions: [],
-    structure: {
-        "name": "anotherday",
-        "type": "CHAT_INPUT",
-        "description": "Another day of thanking god for not making me a ___ fan",
-        "options": [
+export default {
+
+    "structure": {
+        name: "anotherday",
+        type: "CHAT_INPUT",
+        description: "Another day of thanking god for not making me a ___ fan",
+        options: [
             {
-                "name": "image",
-                "description": "Image URL to use for template",
-                "type": "STRING",
-                "required": true
+                name: "image",
+                type: "STRING",
+                required: true,
+                description: "Image URL to use for template",
             }
         ]
     },
+
     invokeFunction: async (int: CommandInteraction) => {
 
         //* Validate URL
@@ -46,7 +46,7 @@ export const AppCommand: BotCommand = {
 
         // Wrap in TryCatch because library might error
         try {
-            
+
             //* Create new canvas
             const canvas = createCanvas(940, 788)
             const ctx = canvas.getContext("2d")
@@ -73,7 +73,9 @@ export const AppCommand: BotCommand = {
                 "ephemeral": true,
                 "content": ":warning: Processing Failed!\n```" + err + "```"
             })
-        }
+
+        };
 
     }
-}
+
+} as BotCommand;
