@@ -5,18 +5,16 @@ export default {
     memberPermissions: ["MANAGE_CHANNELS"],
 
     structure: {
-        "name": "watchthread",
-        "type": "CHAT_INPUT",
-        "description": "Prevent Thread from archiving",
-        "defaultPermission": false,
-        "options": [
-            {
-                "required": true,
-                "name": "channel",
-                "type": "CHANNEL",
-                "description": "Text Channel to prevent form archiving"
-            }
-        ]
+        name: "watchthread",
+        type: "CHAT_INPUT",
+        description: "Disallow Thread to archive",
+        defaultPermission: false,
+        options: [{
+            required: true,
+            name: "channel",
+            type: "CHANNEL",
+            description: "Text Channel to prevent form archiving"
+        }]
     },
 
     invokeFunction: async (int: CommandInteraction) => {

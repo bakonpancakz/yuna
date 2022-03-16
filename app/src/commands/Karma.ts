@@ -3,16 +3,14 @@ import Redis from "../core/Redis";
 
 export default {
     structure: {
-        "name": "karma",
-        "type": "CHAT_INPUT",
-        "description": "🌸 See karma for a specific user",
-        "options": [
-            {
-                "name": "user",
-                "description": "👤 User you are referencing",
-                "type": "USER"
-            }
-        ]
+        name: "karma",
+        type: "CHAT_INPUT",
+        description: "🌸 See karma for a specific user",
+        options: [{
+            name: "user",
+            description: "👤 User you are referencing",
+            type: "USER"
+        }]
     },
     invokeFunction: async (int: CommandInteraction) => {
 

@@ -3,23 +3,21 @@ import Redis from "../core/Redis";
 
 export default {
 
-    "structure": {
+    structure: {
         name: "clearthread",
         type: "CHAT_INPUT",
-        description: "Allow Thread to archive normally",
+        description: "Allow Thread to archive",
         defaultPermission: false,
-        options: [
-            {
-                required: true,
-                name: "channel",
-                type: "CHANNEL",
-                description: "Text Channel to allow archiving"
-            }
-        ]
+        options: [{
+            required: true,
+            name: "channel",
+            type: "CHANNEL",
+            description: "Text Channel to allow archiving"
+        }]
     },
 
     memberPermissions: ["MANAGE_CHANNELS"],
-    
+
     invokeFunction: async (int: CommandInteraction) => {
 
         //? Get Channel Parameter

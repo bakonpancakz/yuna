@@ -15,18 +15,16 @@ const TemplateImage = loadImage(
 
 export default {
 
-    "structure": {
+    structure: {
         name: "anotherday",
         type: "CHAT_INPUT",
         description: "Another day of thanking god for not making me a ___ fan",
-        options: [
-            {
-                name: "image",
-                type: "STRING",
-                required: true,
-                description: "Image URL to use for template",
-            }
-        ]
+        options: [{
+            name: "image",
+            type: "STRING",
+            required: true,
+            description: "Image URL to use for template",
+        }]
     },
 
     invokeFunction: async (int: CommandInteraction) => {
