@@ -1,5 +1,5 @@
 import { Structures, Functions, Commands } from "./Manifest";
-import { Guild, PermissionResolvable } from "discord.js";
+import { Guild } from "discord.js";
 import Bot from "./Client";
 
 Bot.on("interactionCreate", async (anyInt) => {

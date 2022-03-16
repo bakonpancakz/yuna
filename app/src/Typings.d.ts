@@ -1,12 +1,11 @@
-import { ApplicationCommandDataResolvable, ApplicationCommandPermissionData, Interaction } from "discord.js";
+import { ApplicationCommandDataResolvable, Interaction, PermissionResolvable } from "discord.js";
 
 declare global {
 
     interface BotCommand {
-        structure: ApplicationCommandDataResolvable,
-        permissions: ApplicationCommandPermissionData[],
-        invokeFunction(int: Interaction): any,
-        disabled?: boolean,
+        structure: ApplicationCommandDataResolvable;
+        memberPermissions: PermissionResolvable[];
+        invokeFunction(int: Interaction): any;
     }
 
     namespace NodeJS {
