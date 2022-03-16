@@ -17,7 +17,7 @@ function SetRandomStatus() {
     })
 
     //? Change on Timeout
-    console.debug(`Set Status to "${Track.name}", Next Track is "${Tracks[0].name}", Waiting for ${Track.time / 1000} seconds, `)
+    console.debug(`Set Status to "${Track.name}", Next Track is "${Tracks[0].name}", Waiting for ${Track.time / 1000} seconds.`)
     setTimeout(SetRandomStatus, Track.time);
 }
 
