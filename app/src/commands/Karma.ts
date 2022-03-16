@@ -1,9 +1,7 @@
 import { CommandInteraction, MessageEmbed } from "discord.js";
-import { BotCommand } from "../types";
 import Redis from "../core/Redis";
 
-export const AppCommand: BotCommand = {
-    permissions: [],
+export default {
     structure: {
         "name": "karma",
         "type": "CHAT_INPUT",
@@ -16,7 +14,6 @@ export const AppCommand: BotCommand = {
             }
         ]
     },
-
     invokeFunction: async (int: CommandInteraction) => {
 
         //? Get User Info
@@ -38,4 +35,4 @@ export const AppCommand: BotCommand = {
         int.reply({ embeds: [Results] })
 
     }
-}
+} as BotCommand;

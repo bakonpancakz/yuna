@@ -1,8 +1,9 @@
 import { CommandInteraction } from "discord.js";
-import { BotCommand } from "../types";
 import Redis from "../core/Redis";
 
-export const AppCommand: BotCommand = {
+export default {
+    memberPermissions: ["MANAGE_CHANNELS"],
+
     structure: {
         "name": "watchthread",
         "type": "CHAT_INPUT",
@@ -17,14 +18,6 @@ export const AppCommand: BotCommand = {
             }
         ]
     },
-
-    permissions: [
-        {
-            "type": "USER",
-            "permission": true,
-            "id": String(process.env.YUNA_OWNER)
-        }
-    ],
 
     invokeFunction: async (int: CommandInteraction) => {
 
@@ -46,4 +39,4 @@ export const AppCommand: BotCommand = {
         })
 
     }
-}
+} as BotCommand;

@@ -1,33 +1,26 @@
 import { CommandInteraction } from "discord.js";
-import { BotCommand } from "../types";
 import Redis from "../core/Redis";
 
-export const AppCommand: BotCommand = {
-    structure: {
-        "name": "clearthread",
-        "type": "CHAT_INPUT",
-        "description": "Allow Thread to archive normally",
-        "defaultPermission": false,
-        "options": [
+export default {
+
+    "structure": {
+        name: "clearthread",
+        type: "CHAT_INPUT",
+        description: "Allow Thread to archive normally",
+        defaultPermission: false,
+        options: [
             {
-                "required": true,
-                "name": "channel",
-                "type": "CHANNEL",
-                "description": "Text Channel to allow archiving"
+                required: true,
+                name: "channel",
+                type: "CHANNEL",
+                description: "Text Channel to allow archiving"
             }
         ]
     },
 
-    permissions: [
-        {
-            "type": "USER",
-            "permission": true,
-            "id": String(process.env.YUNA_OWNER)
-        }
-    ],
-
+    memberPermissions: ["MANAGE_CHANNELS"],
+    
     invokeFunction: async (int: CommandInteraction) => {
-
 
         //? Get Channel Parameter
         const channel = int.options.getChannel("channel")
@@ -57,4 +50,4 @@ export const AppCommand: BotCommand = {
 
     }
 
-}
+} as BotCommand;
