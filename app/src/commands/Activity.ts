@@ -31,6 +31,12 @@ export default {
 
         //* [1] Retrieve Application Data
         const AppList: string[] = await Redis.sMembers(`${UserId}:apps:list`);
+
+        // Played any games yet?
+        if (AppList.length === 0) return int.reply({
+            content: "No Game Activity Yet! Please try again later."
+        });
+
         Promise.all(
             AppList.map((id: string) => {
                 return new Promise(async (res) => {
