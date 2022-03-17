@@ -32,3 +32,16 @@ export function toDuration(d: number): string {
     if (s.length === 0) s = "0s";
     return s;
 }
+
+//* Centers a string
+export function centerText(text, maxLength) {
+    const leftover = (maxLength - text.length) / 2 % 1;
+    const splitPadding = (maxLength - text.length) / 2 - leftover;
+    let padL = splitPadding + (leftover ? 1 : 0);
+    let padR = splitPadding;
+
+    //* Append padding
+    text = text.padStart(text.length + padL, " ");
+    text = text.padEnd(text.length + padR, " ");
+    return text;
+}

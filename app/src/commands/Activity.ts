@@ -1,5 +1,5 @@
 import { CommandInteraction, MessageEmbed } from "discord.js";
-import { toDuration } from "../modules/Timeformat";
+import { centerText, toDuration } from "../modules/Timeformat";
 import { timeAgo } from "../modules/TimeAgo";
 import Redis from "../core/Redis";
 
@@ -81,7 +81,7 @@ export default {
                 AppInfo.every((app, i, a) => {
 
                     //* [1] Compile Data
-                    const LastPlayed = timeAgo(app.last_played).padEnd(15, " ");        // Get Last Played
+                    const LastPlayed = centerText(timeAgo(app.last_played), 15);        // Get Last Played
                     const Duration = toDuration(app.time_spent * 1000);                 // Get Duration
                     const AppName = app.app_name.length > 20                            // Get App Date
                         ? app.app_name.slice(0, 19) + "…"

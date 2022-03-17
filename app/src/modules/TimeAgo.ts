@@ -47,7 +47,6 @@ export function timeAgo(dateParam) {
     const seconds = Math.round((time - date) / 1000);
     const minutes = Math.round(seconds / 60);
     const isToday = today.toDateString() === date.toDateString();
-    const isYesterday = yesterday.toDateString() === date.toDateString();
     const isThisYear = today.getFullYear() === date.getFullYear();
 
 
@@ -60,12 +59,10 @@ export function timeAgo(dateParam) {
     } else if (minutes < 60) {
         return `${minutes} minutes ago`;
     } else if (isToday) {
-        return getFormattedDate(date, 'Today'); // Today at 10:20
-    } else if (isYesterday) {
-        return getFormattedDate(date, 'Yesterday'); // Yesterday at 10:20
+        return getFormattedDate(date, 'Today');     // Today at 10:20
     } else if (isThisYear) {
         return getFormattedDate(date, false, true); // Jan 10 at 10:20
     }
 
-    return getFormattedDate(date); // Jan 10 2017 at 10:20
+    return getFormattedDate(date);                  // Jan 10 2017 at 10:20
 }
