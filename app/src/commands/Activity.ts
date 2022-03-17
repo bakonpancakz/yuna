@@ -81,10 +81,10 @@ export default {
                 AppInfo.every((app, i, a) => {
 
                     //* [1] Compile Data
-                    const LastPlayed = timeAgo(app.last_played);
-                    const Duration = toDuration(app.time_spent * 1000);
-                    const AppName = app.app_name.length > 20
-                        ? app.app_name.slice(0, 10) + "…"
+                    const LastPlayed = timeAgo(app.last_played).padEnd(15, " ");        // Get Last Played
+                    const Duration = toDuration(app.time_spent * 1000);                 // Get Duration
+                    const AppName = app.app_name.length > 20                            // Get App Date
+                        ? app.app_name.slice(0, 19) + "…"
                         : app.app_name.slice(0, 20).padEnd(20, " ");
                     const str = `${i + 1}. ${AppName} | ${LastPlayed} | ${Duration}`;
 
