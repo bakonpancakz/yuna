@@ -64,6 +64,7 @@ export default {
                         icon_url: User.avatarURL({ size: 32 }),
                         name: `Game activity for ${User.tag}`
                     },
+                    timestamp: new Date(),
                     color: 16711771,
                     description: "",
                 });
