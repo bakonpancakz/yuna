@@ -107,14 +107,19 @@ export default {
                 Embed.description += "```";         // End Code Block
 
                 //* Return Embed
-                int.reply({ embeds: [Embed] });
-            })
-            .catch(err => {
-
-                //! Error Creating Table
                 int.reply({
-                    ephemeral: int.options.getBoolean("share") || true,
-                    content: `Error getting activity.\n${err}`
+                    ephemeral: !int.options.getBoolean("share"),
+                    embeds: [Embed]
+                });
+
+            })
+            .catch((err: Error) => {
+
+                console.error(err)
+                //! Return Runtime Error
+                return int.reply({
+                    "ephemeral": true,
+                    "content": ":warning: Processing Failed!\n```" + err + "```"
                 });
 
             });
