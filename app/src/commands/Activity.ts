@@ -19,7 +19,7 @@ export default {
         options: [{
             name: "share",
             type: "BOOLEAN",
-            description: "Make message only visible to you?"
+            description: "Share message with server member(s)?"
         }]
     },
 
