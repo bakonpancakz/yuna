@@ -64,6 +64,9 @@ export default {
                         icon_url: User.avatarURL({ size: 32 }),
                         name: `Game activity for ${User.tag}`
                     },
+                    footer: {
+                        text: "⚠ Activity is updated when game is closed."
+                    },
                     timestamp: new Date(),
                     color: 16711771,
                     description: "",
