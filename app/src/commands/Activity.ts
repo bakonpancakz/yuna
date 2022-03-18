@@ -78,7 +78,7 @@ export default {
                 Embed.description += `Total Game Time: \`${toDuration(TotalTime * 1000)}\`\n`
 
                 //* Compile Games List
-                Embed.description += "```diff\n";   // Start Code Block
+                Embed.description += "```\n";       // Start Code Block
                 AppInfo.every((app, i, a) => {
 
                     //* [1] Compile Data
